@@ -33,8 +33,8 @@ if a > b:
     
 #Exercice 7
 #verifier_si_un_nombre_est_pair_ou_impair
-nombre_str = input("Veuillez entrer un nombre entier : ")
 try:
+    nombre_str = input("Veuillez entrer un nombre entier : ")
     nombre = int(nombre_str)
     if nombre % 2 == 0:
         print(f"{nombre} est un nombre pair essaie encore.")
@@ -52,9 +52,8 @@ else:   print("pas des jumeaux !")
 
 #Exercice 9
 taille_str = input("Veuillez entrer votre taille en centimètres : ")
-try:
-    taille = float(taille_str)
-    if taille >= 175:
+taille = float(taille_str)
+if taille >= 175:
         print("Vous êtes assez grand pour faire les montagnes russes !")
-    else
+else:
         print("Désolé, vous n'êtes pas assez grand pour faire les montagnes russes.")
