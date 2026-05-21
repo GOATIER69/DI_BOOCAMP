@@ -4,7 +4,7 @@ dictionnaire = {}
 
 for index, lettre in enumerate(mot):
     if lettre in dictionnaire:
-        dictionnaire[lettre] += (index)
+        dictionnaire[lettre].append(index)
     else:
         dictionnaire[lettre] = [index]
 
