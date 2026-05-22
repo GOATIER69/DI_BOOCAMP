@@ -76,7 +76,6 @@ print(f"\n{dog1.fight(dog2)}")
 print(f"{dog2.fight(dog3)}")
 print(f"{dog1.fight(dog3)}")
 
-
 #Exercice 4
 class Person:
     def __init__(self, first_name, age, last_name=""):
