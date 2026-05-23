@@ -2,7 +2,7 @@
 from Game import Game
 
 def get_user_menu_choice():
-    """Affiche le menu et récupère le choix de l'utilisateur sans boucle interne."""
+    """Affiche le menu et récupère le choix de l'utilisateur."""
     print("\n--- MENU PRINCIPAL ---")
     print("1. Jouer une nouvelle partie")
     print("2. Afficher les scores actuels")
@@ -12,18 +12,18 @@ def get_user_menu_choice():
     return choice
 
 def print_results(results):
-    """Affiche le récapitulatif final des scores de manière conviviale."""
+    """Affiche le récapitulatif final des scores au format demandé {win: X, loss: Y, draw: Z}."""
     print("\n=================================");
     print("📊 RÉCAPITULATIF DES SCORES 📊")
     print("=================================")
-    print(f"🏆 Victoires : {results['win']}")
-    print(f"❌ Défaites  : {results['loss']}")
-    print(f"🤝 Matchs nuls: {results['draw']}")
+    print(f"🏆 Victoires (wins)  : {results['win']}")
+    print(f"❌ Défaites (losses) : {results['loss']}")
+    print(f"🤝 Matchs nuls (draws): {results['draw']}")
     print("=================================")
     print("Merci d'avoir joué avec nous ! À bientôt ! 👋\n")
 
 def main():
-    # Initialisation du dictionnaire des scores selon le format demandé
+    # Initialisation du dictionnaire respectant exactement le format requis
     scores = {"win": 0, "loss": 0, "draw": 0}
     
     print("Bienvenue dans le jeu Pierre, Feuille, Ciseaux ! 🪨 📄 ✂️")
@@ -32,24 +32,24 @@ def main():
         choice = get_user_menu_choice()
         
         if choice == "1":
-            # Création d'une instance de la classe Game et lancement de la partie
+            # Création de l'objet et appel de la méthode play()
             match = Game()
             game_result = match.play()
             
-            # Mise à jour du dictionnaire des scores en fonction du retour de play()
-            if game_result == "victoire":
+            # CORRECTION : On vérifie maintenant les clés anglaises renvoyées par play()
+            if game_result == "win":
                 scores["win"] += 1
-            elif game_result == "défaite":
+            elif game_result == "loss":
                 scores["loss"] += 1
-            elif game_result == "match nul":
+            elif game_result == "draw":
                 scores["draw"] += 1
                 
         elif choice == "2":
-            # Option bonus pour voir les scores sans quitter
+            # Visualisation rapide des scores sans quitter
             print(f"\nScores actuels -> Victoires: {scores['win']} | Défaites: {scores['loss']} | Nuls: {scores['draw']}")
             
         elif choice in ["q", "x"]:
-            # Fin du programme et affichage des résultats
+            # Appel de la fonction d'affichage final avant de couper le programme
             print_results(scores)
             break
             
